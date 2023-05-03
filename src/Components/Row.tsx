@@ -8,6 +8,8 @@ interface Props {
 }
 
 export default function Row({ rowData, index, maxNumber }: Props) {
+  const height: number = (rowData[index]?.amount / maxNumber) * 150;
+
   return (
     <Container>
       <div
@@ -15,6 +17,7 @@ export default function Row({ rowData, index, maxNumber }: Props) {
         style={{
           backgroundColor:
             rowData[index]?.amount === maxNumber ? "#B4E0E5" : "#EC755D",
+          height: `${height}px`,
         }}
       >
         <div className="priceBox">
