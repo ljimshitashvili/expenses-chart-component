@@ -10,7 +10,9 @@ export default function Chart(): JSX.Element {
   useEffect(() => {
     const chartData = async () => {
       try {
-        const response = await axios.get("../../public/data.json");
+        const response = await axios.get(
+          "https://raw.githubusercontent.com/ljimshitashvili/expenses-chart-component/master/public/data.json"
+        );
         const data = response.data;
         setRowData(data);
       } catch (error) {}
