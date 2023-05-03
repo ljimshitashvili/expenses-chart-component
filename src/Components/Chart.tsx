@@ -13,9 +13,7 @@ export default function Chart(): JSX.Element {
         const response = await axios.get("../../public/data.json");
         const data = response.data;
         setRowData(data);
-      } catch (error) {
-        console.log("lashaaa");
-      }
+      } catch (error) {}
     };
 
     chartData();
@@ -32,7 +30,6 @@ export default function Chart(): JSX.Element {
   ];
 
   const maxNumber = Math.max(...numbers);
-  console.log(maxNumber);
 
   return (
     <Container>
