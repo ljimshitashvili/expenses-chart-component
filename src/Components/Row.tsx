@@ -21,7 +21,7 @@ export default function Row({ rowData, index, maxNumber }: Props) {
         }}
       >
         <div className="priceBox">
-          <p>{rowData[index]?.amount}</p>
+          <p>${rowData[index]?.amount}</p>
         </div>
       </div>
       <p>{rowData[index]?.day}</p>
@@ -49,17 +49,40 @@ const Container = styled.div`
   }
 
   .priceBox {
-    width: 75px;
-    height: 40px;
-    border-radius: 5px;
-    background: #382314;
     display: none;
+  }
+
+  @media (min-width: 1024px) {
+    gap: 8px;
+    position: relative;
+    cursor: pointer;
+
+    .row {
+      width: 50px;
+      border-radius: 5px;
+    }
 
     p {
-      font-weight: 700;
-      font-size: 18px;
-      line-height: 23px;
-      color: #fffbf6;
+      font-size: 15px;
+      line-height: 20px;
+    }
+
+    :hover .priceBox {
+      width: 71px;
+      height: 40px;
+      border-radius: 5px;
+      background: #382314;
+      display: block;
+      position: absolute;
+      left: -10.5px;
+      top: -48px;
+
+      p {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 40px;
+        color: #fffbf6;
+      }
     }
   }
 `;

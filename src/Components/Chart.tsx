@@ -131,4 +131,44 @@ const Container = styled.div`
       }
     }
   }
+
+  @media (min-width: 1024px) {
+    max-width: 540px;
+    border-radius: 20px;
+    padding: 32px 40px;
+
+    .rowContainer {
+      gap: 17px;
+    }
+
+    h1 {
+      font-size: 32px;
+      line-height: 42px;
+      margin-bottom: 66px;
+    }
+
+    div {
+      div {
+        h2 {
+          font-size: 18px;
+          line-height: 23px;
+        }
+
+        h3 {
+          font-size: 48px;
+          line-height: 62px;
+        }
+
+        h4 {
+          font-size: 18px;
+          line-height: 23px;
+        }
+
+        h5 {
+          font-size: 18px;
+          line-height: 23px;
+        }
+      }
+    }
+  }
 `;

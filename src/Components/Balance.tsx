@@ -43,4 +43,30 @@ const Container = styled.div`
       color: #ffffff;
     }
   }
+
+  @media (min-width: 1024px) {
+    max-width: 540px;
+    border-radius: 20px;
+    padding: 26px 32px;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+      h1 {
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 20px;
+        color: #ffffff;
+      }
+
+      h2 {
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 31px;
+        color: #ffffff;
+      }
+    }
+  }
 `;
