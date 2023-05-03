@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styled from "styled-components";
 import Balance from "./Components/Balance";
 import Chart from "./Components/Chart";

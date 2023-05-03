@@ -1,18 +1,50 @@
 import styled from "styled-components";
+import Row from "./Row";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import Chartypes from "../../types";
 
-export default function Chart() {
+export default function Chart(): JSX.Element {
+  const [rowData, setRowData] = useState<Chartypes[]>([]);
+
+  useEffect(() => {
+    const chartData = async () => {
+      try {
+        const response = await axios.get("../../public/data.json");
+        const data = response.data;
+        setRowData(data);
+      } catch (error) {
+        console.log("lashaaa");
+      }
+    };
+
+    chartData();
+  }, []);
+
+  const numbers: number[] = [
+    rowData[0]?.amount,
+    rowData[1]?.amount,
+    rowData[2]?.amount,
+    rowData[3]?.amount,
+    rowData[4]?.amount,
+    rowData[5]?.amount,
+    rowData[6]?.amount,
+  ];
+
+  const maxNumber = Math.max(...numbers);
+  console.log(maxNumber);
+
   return (
     <Container>
       <h1>Spending - Last 7 days</h1>
-      <ChartDiv></ChartDiv>
-      <div className="dayContainer">
-        <p>mon</p>
-        <p>tue</p>
-        <p>wed</p>
-        <p>thu</p>
-        <p>fri</p>
-        <p>sat</p>
-        <p>sun</p>
+      <div className="rowContainer">
+        <Row rowData={rowData} maxNumber={maxNumber} index={0} />
+        <Row rowData={rowData} maxNumber={maxNumber} index={1} />
+        <Row rowData={rowData} maxNumber={maxNumber} index={2} />
+        <Row rowData={rowData} maxNumber={maxNumber} index={3} />
+        <Row rowData={rowData} maxNumber={maxNumber} index={4} />
+        <Row rowData={rowData} maxNumber={maxNumber} index={5} />
+        <Row rowData={rowData} maxNumber={maxNumber} index={6} />
       </div>
       <hr />
       <div>
@@ -36,20 +68,12 @@ const Container = styled.div`
   background: #fffbf6;
   border-radius: 10px;
 
-  .dayContainer {
+  .rowContainer {
     display: flex;
-    align-items: center;
+    width: 100%;
+    height: 150px;
     justify-content: space-between;
     gap: 12px;
-    margin-top: 11px;
-
-    p {
-      font-weight: 400;
-      font-size: 12px;
-      line-height: 16px;
-      text-align: center;
-      color: #92857a;
-    }
   }
 
   hr {
@@ -107,11 +131,4 @@ const Container = styled.div`
       }
     }
   }
-`;
-
-const ChartDiv = styled.div`
-  width: 100%;
-  height: 150px;
-  display: flex;
-  gap: 12px;
 `;
