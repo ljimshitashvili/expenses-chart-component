@@ -65,7 +65,7 @@ const Container = styled.div`
         font-weight: 700;
         font-size: 24px;
         line-height: 31px;
-        color: #ffffff;
+        color: #fffff1;
       }
     }
   }
