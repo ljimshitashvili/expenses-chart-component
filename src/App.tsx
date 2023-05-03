@@ -1,9 +1,21 @@
 import { useState } from "react";
-import GlobalStyle from "./GlobalStyles";
 import styled from "styled-components";
+import Balance from "./Components/Balance";
 
-function App() {
-  return <></>;
+export default function App() {
+  return (
+    <Body>
+      <Balance></Balance>
+    </Body>
+  );
 }
 
-export default App;
+const Body = styled.div`
+  background-color: #f8e9dd;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
